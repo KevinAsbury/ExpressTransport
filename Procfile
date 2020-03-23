@@ -1,1 +1,1 @@
-web: flask run -h localhost -p 80
+web: flask run -h localhost -p 8080
