@@ -1,6 +1,6 @@
-# Express Transport
+# MyExpressWay
 
-My [Udacity](https://www.udacity.com/) Full Statck Developer Nanodegree program final project: a flask server to manage drivers and vehicles.
+My [Udacity](https://www.udacity.com/) Full Statck Developer Nanodegree program final project. The MyExpressWay app is used by an imaginary delivery company. They have drivers who need to login and mark if they are available and they have managers who need to login and see available drivers and deliveries. 
 
 ## Getting Started
 

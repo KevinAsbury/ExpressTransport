@@ -1,9 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
 import os
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey #, create_engine
+from sqlalchemy.orm import relationship
 import json
 
-database_filename = "expresstransport.sqlite3"
+database_filename = "myexpressway.sqlite3"
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 
@@ -20,33 +21,27 @@ def db_drop_and_create_all():
     db.create_all()
 
 '''
-Vehicle
-A vehicle used for transport
+Delivery
+A product available for delivery
 '''
-class Vehicle(db.Model):
-    __tablename__ = 'Vehicles'
+class Delivery(db.Model):
+    __tablename__ = 'deliveries'
     id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
-    year = Column(Integer)
-    make = Column(String)
-    model = Column(String)
-    VIN = Column(String)
-    vtype = Column(String)
+    description = Column(String)
+    delivered = Column(Boolean)
+    driver_id = Column(Integer, ForeignKey('drivers.id'))
+    driver = relationship("Driver", back_populates="deliveries")
 
-    def __init__(self, year, make, model, VIN, vtype):
-        self.year = year
-        self.make = make
-        self.model = model
-        self.VIN = VIN
-        self.vtype = vtype
+    def __init__(self, description):
+        self.description = description
+        self.delivered = False
     
     def format(self):
         return {
             'id': self.id,
-            'year': self.year,
-            'make': self.make,
-            'model': self.model,
-            'VIN': self.VIN,
-            'vtype': self.vtype
+            'description': self.description,
+            'delivered': self.delivered,
+            'driver_id': self.driver_id
         }
     
     def insert(self):
@@ -64,23 +59,27 @@ Driver
 Driver of a vehicle. 
 '''
 class Driver(db.Model):
-    __tablename__ = 'Drivers'
-    id = Column(Integer, primary_key=True)
+    __tablename__ = 'drivers'
+    id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
     fname = Column(String)
     lname = Column(String)
-    vtypes = Column(String)
+    vehicle = Column(String)
+    available = Column(Boolean)
+    deliveries = relationship("Delivery", back_populates="drivers")
 
-    def __init__(self, fname, lname, vtypes):
+    def __init__(self, fname, lname, vehicle):
         self.fname = fname
         self.lname = lname
-        self.vtypes = vtypes
+        self.vehicle = vehicle
+        self.available = True
 
     def format(self):
         return {
             'id': self.id,
             'fname': self.fname,
             'lname': self.lname,
-            'vtypes': self.vtypes
+            'vehicle': self.vehicle,
+            'available':self.available
         }
     
     def insert(self):
