@@ -1,9 +1,9 @@
-from flask import Flask, request, jsonify
+from app import app
+from app.models import setup_db
+from flask import request, jsonify
 from flask_cors import CORS
 import json
-from models import Driver, Vehicle, db_drop_and_create_all, setup_db
 
-app = Flask(__name__)
 CORS(app)
 setup_db(app)
 

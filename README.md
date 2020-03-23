@@ -15,4 +15,4 @@ Follow instructions on the [Postman docs](https://www.getpostman.com/) to instal
 
 ### Run the Server
 
-On first run, execute `export FLASK_APP=app.py`. Then run `flask run --reload` to run the developer server.
+On first run, execute `export FLASK_APP=app`. Then run `flask run --reload` to run the developer server.
