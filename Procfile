@@ -1,1 +1,1 @@
-web: gunicorn -b localhost:$PORT -w 2 app:app
+web: gunicorn -b 0.0.0.0:$PORT -w 2 app:app
