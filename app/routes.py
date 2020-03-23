@@ -3,7 +3,7 @@ from app.models import setup_db, db_drop_and_create_all
 from flask import request, jsonify
 from flask_cors import CORS
 import json
-from auth import requires_auth
+from app.auth import requires_auth
 
 CORS(app)
 setup_db(app)

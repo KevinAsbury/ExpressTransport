@@ -17,4 +17,11 @@ Follow instructions on the [Postman docs](https://www.getpostman.com/) to instal
 
 ### Run the Server
 
-On first run, execute `export FLASK_APP=app`. Then run `flask run --reload` to run the developer server.
+## Environment Variables
+`export FLASK_APP=app`
+
+## Development
+Type `flask run --reload` to run the developer server.
+
+## Production
+Type `gunicorn -b localhost:5000 -w 2 app:app` to run a production server.

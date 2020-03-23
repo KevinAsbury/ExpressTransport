@@ -10,6 +10,7 @@ flask = "*"
 flask-sqlalchemy = "*"
 flask-cors = "*"
 gunicorn = "*"
+python-jose-cryptodome = "*"
 
 [requires]
 python_version = "3.7"
