@@ -63,23 +63,17 @@ class Driver(db.Model):
     id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
     fname = Column(String)
     lname = Column(String)
-    vehicle = Column(String)
-    available = Column(Boolean)
     deliveries = relationship("Delivery", back_populates="drivers")
 
     def __init__(self, fname, lname, vehicle):
         self.fname = fname
         self.lname = lname
-        self.vehicle = vehicle
-        self.available = True
 
     def format(self):
         return {
             'id': self.id,
             'fname': self.fname,
             'lname': self.lname,
-            'vehicle': self.vehicle,
-            'available':self.available
         }
     
     def insert(self):
