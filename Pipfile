@@ -11,6 +11,7 @@ flask-sqlalchemy = "*"
 flask-cors = "*"
 gunicorn = "*"
 python-jose-cryptodome = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"

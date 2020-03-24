@@ -1,5 +1,5 @@
 from app import app
-from app.models import setup_db, db_drop_and_create_all
+from app.models import setup_db, db_drop_and_create_all, Delivery, Driver
 from flask import request, jsonify
 from flask_cors import CORS
 import json
@@ -16,32 +16,51 @@ setup_db(app)
 
 @app.route('/')
 def index():
-    return 'Hello World!'
+    return jsonify('Hello World!')
 
 @app.route('/deliveries', methods=['GET'])
 @requires_auth('get:deliveries')
 def get_deliveries(jwt):
-    return 'To be implemented'
+    query = Delivery.query.all()
+    deliveries = [q.format() for q in query]
+    return jsonify(deliveries)
 
 @app.route('/deliveries', methods=['POST'])
 @requires_auth('post:deliveries')
 def post_deliveries(jwt):
-    return 'To be implemented'
+    req = request.get_json()
+    description = req['description']
+    new_delivery = Delivery(description)
+    new_delivery.insert()
+    return jsonify(new_delivery.format())
 
 @app.route('/deliveries/<int:id>', methods=['PATCH'])
 @requires_auth('patch:deliveries')
 def update_deliveries(jwt, id):
-    return f'To be implemented: id {id}'
+    query = Delivery.query.get(id)
+    req = request.get_json()
+    if 'description' in req:
+        query.description = req.get('description', '')
+    if 'delivered' in req:
+        query.delivered = req.get('delivered', None)
+    if 'driver' in req:
+        query.driver_id = req.get('driver', 0)
+    query.update()
+    return jsonify(query.format())
 
 @app.route('/deliveries/<int:id>', methods=['DELETE'])
 @requires_auth('delete:deliveries')
 def delete_deliveries(jwt, id):
-    return f'To be implemented: id {id}'
+    query = Delivery.query.get(id)
+    query.delete()
+    return jsonify(query.format())
 
 @app.route('/drivers', methods=['GET'])
 @requires_auth('get:drivers')
 def get_drivers(jwt):
-    return 'To be implemented'
+    query = Driver.query.all()
+    drivers = [q.format() for q in query]
+    return jsonify(drivers)
 
 
 ## Error Handling
