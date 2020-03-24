@@ -30,7 +30,7 @@ class Delivery(db.Model):
     description = Column(String)
     delivered = Column(Boolean)
     driver_id = Column(Integer, ForeignKey('drivers.id'))
-    driver = relationship("Driver", back_populates="deliveries")
+    driver = relationship("Driver")
 
     def __init__(self, description):
         self.description = description
@@ -63,9 +63,9 @@ class Driver(db.Model):
     id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
     fname = Column(String)
     lname = Column(String)
-    deliveries = relationship("Delivery", back_populates="drivers")
+    # deliveries = relationship("Delivery", back_populates="drivers")
 
-    def __init__(self, fname, lname, vehicle):
+    def __init__(self, fname, lname):
         self.fname = fname
         self.lname = lname
 
