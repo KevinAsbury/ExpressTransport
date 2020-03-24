@@ -43,21 +43,6 @@ def delete_deliveries(jwt, id):
 def get_drivers(jwt):
     return 'To be implemented'
 
-# @app.route('/drivers', methods=['POST'])
-# @requires_auth('post:drivers')
-# def post_driver(jwt):
-#     return 'To be implemented'
-
-# @app.route('/drivers/<int:id>', methods=['PATCH'])
-# @requires_auth('patch:drivers')
-# def update_driver(jwt, id):
-#     return 'To be implemented'
-
-# @app.route('/drivers/<int:id>', methods=['DELETE'])
-# @requires_auth('delete:drivers')
-# def delete_driver(jwt, id):
-#     return 'To be implemented'
-
 
 ## Error Handling
 @app.errorhandler(401)
