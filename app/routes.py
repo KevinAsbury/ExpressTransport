@@ -14,10 +14,21 @@ setup_db(app)
 '''
 #db_drop_and_create_all()
 
+'''
+GET /
+    public endpoint
+    contains a login link
+'''
 @app.route('/')
 def index():
     return jsonify('Hello World!')
 
+'''
+GET /deliveries
+    login endpoint
+    returns a list of deliveries in json format
+    or appropriate status code indicating reason for failure
+'''
 @app.route('/deliveries', methods=['GET'])
 @requires_auth('get:deliveries')
 def get_deliveries(jwt):
@@ -25,6 +36,13 @@ def get_deliveries(jwt):
     deliveries = [q.format() for q in query]
     return jsonify(deliveries)
 
+'''
+POST /deliveries
+    create new deliveries endpoint
+    provided a description of the item in json format
+    adds item to database and returns the item description
+    or appropriate status code indicating reason for failure
+'''
 @app.route('/deliveries', methods=['POST'])
 @requires_auth('post:deliveries')
 def post_deliveries(jwt):
@@ -34,6 +52,13 @@ def post_deliveries(jwt):
     new_delivery.insert()
     return jsonify(new_delivery.format())
 
+'''
+PATCH /deliveries/<id>
+    update deliveries endpoint
+    provided an updated description, driver, or delivery status in json format
+    updates item in the database and returns the json formatted item
+    or appropriate status code indicating reason for failure
+'''
 @app.route('/deliveries/<int:id>', methods=['PATCH'])
 @requires_auth('patch:deliveries')
 def update_deliveries(jwt, id):
@@ -48,6 +73,13 @@ def update_deliveries(jwt, id):
     query.update()
     return jsonify(query.format())
 
+'''
+DELETE /deliveries/<id>
+    delete deliveries endpoint
+    provided the delivery id
+    deletes item from the database and returns the json formatted item
+    or appropriate status code indicating reason for failure
+'''
 @app.route('/deliveries/<int:id>', methods=['DELETE'])
 @requires_auth('delete:deliveries')
 def delete_deliveries(jwt, id):
@@ -55,6 +87,12 @@ def delete_deliveries(jwt, id):
     query.delete()
     return jsonify(query.format())
 
+'''
+GET /drivers
+    list of drivers endpoint
+    returns a list of drivers in json format
+    or appropriate status code indicating reason for failure
+'''
 @app.route('/drivers', methods=['GET'])
 @requires_auth('get:drivers')
 def get_drivers(jwt):
