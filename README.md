@@ -98,7 +98,7 @@ GET /drivers
 
 Get a list of drivers.
 
-[
+`[
     {
         "fname": "John",
         "id": 1,
@@ -109,5 +109,5 @@ Get a list of drivers.
         "id": 2,
         "lname": "Winters"
     }
-]
+]`
 --------------------------
