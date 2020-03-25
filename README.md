@@ -49,7 +49,7 @@ The application root.
 GET /deliveries
 
 Returns a json list of deliveries.
-
+```
 [
     {
         "delivered": false,
@@ -64,40 +64,43 @@ Returns a json list of deliveries.
         "id": 2
     }
 ]
+```
 --------------------------
 POST /deliveries
 
 Create a new delivery. Returns a description of the posted item.
-
+```
 {
     "description": "Softest Potato Bread"
 }
+```
 --------------------------
 PATCH /deliveries/<id>
 
 Update a delivery by the provided id. Returns the patched item.
-
+```
 {
     "description": "Softest Wheat Bread",
     "driver": 1,
     "delivered": false
 }
+```
 --------------------------
 DELETE /deliveries/<id>
 
 Delete a delivery by the provided id. Returns a json representation of the deleted item.
-
+```
 {
     "delivered": false,
     "description": "Softest Potato Bread",
     "driver_id": null,
     "id": 6
 }
+```
 --------------------------
 GET /drivers
 
 Get a list of drivers.
-
 ```
 [
     {
