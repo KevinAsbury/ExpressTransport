@@ -41,11 +41,10 @@ Driver Permissions:
 
 ### Endpoints
 
---------------------------
 GET /
 
 The application root.
---------------------------
+
 GET /deliveries
 
 Returns a json list of deliveries.
