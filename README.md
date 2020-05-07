@@ -17,7 +17,8 @@ Follow instructions on the [Postman docs](https://www.getpostman.com/) to instal
 
 ### Run the Server
 
-## Environment Variables
+## Environment
+run `pipenv shell`
 run `./setup.sh` to load the environment variables.
 
 # Development:

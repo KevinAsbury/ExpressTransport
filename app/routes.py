@@ -29,9 +29,9 @@ GET /deliveries
     returns a list of deliveries in json format
     or appropriate status code indicating reason for failure
 '''
+# @requires_auth('get:deliveries')
 @app.route('/deliveries', methods=['GET'])
-@requires_auth('get:deliveries')
-def get_deliveries(jwt):
+def get_deliveries():
     query = Delivery.query.all()
     deliveries = [q.format() for q in query]
     return jsonify(deliveries)
@@ -43,9 +43,9 @@ POST /deliveries
     adds item to database and returns the item description
     or appropriate status code indicating reason for failure
 '''
-@app.route('/deliveries', methods=['POST'])
 @requires_auth('post:deliveries')
-def post_deliveries(jwt):
+@app.route('/deliveries', methods=['POST'])
+def post_deliveries():
     req = request.get_json()
     description = req['description']
     new_delivery = Delivery(description)
@@ -59,17 +59,20 @@ PATCH /deliveries/<id>
     updates item in the database and returns the json formatted item
     or appropriate status code indicating reason for failure
 '''
-@app.route('/deliveries/<int:id>', methods=['PATCH'])
 @requires_auth('patch:deliveries')
-def update_deliveries(jwt, id):
+@app.route('/deliveries/<int:id>', methods=['PATCH'])
+def update_deliveries(id):
     query = Delivery.query.get(id)
     req = request.get_json()
+    print(req.get('driver_id', 0))
     if 'description' in req:
         query.description = req.get('description', '')
     if 'delivered' in req:
         query.delivered = req.get('delivered', None)
     if 'driver' in req:
         query.driver_id = req.get('driver', 0)
+    if 'driver_id' in req:
+        query.driver_id = req.get('driver_id', 0)
     query.update()
     return jsonify(query.format())
 
@@ -79,10 +82,11 @@ DELETE /deliveries/<id>
     provided the delivery id
     deletes item from the database and returns the json formatted item
     or appropriate status code indicating reason for failure
+    
 '''
-@app.route('/deliveries/<int:id>', methods=['DELETE'])
 @requires_auth('delete:deliveries')
-def delete_deliveries(jwt, id):
+@app.route('/deliveries/<int:id>', methods=['DELETE'])
+def delete_deliveries(id): #jwt, 
     query = Delivery.query.get(id)
     query.delete()
     return jsonify(query.format())
@@ -93,9 +97,9 @@ GET /drivers
     returns a list of drivers in json format
     or appropriate status code indicating reason for failure
 '''
-@app.route('/drivers', methods=['GET'])
 @requires_auth('get:drivers')
-def get_drivers(jwt):
+@app.route('/drivers', methods=['GET'])
+def get_drivers():
     query = Driver.query.all()
     drivers = [q.format() for q in query]
     return jsonify(drivers)
