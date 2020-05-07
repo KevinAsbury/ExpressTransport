@@ -29,7 +29,6 @@ GET /deliveries
     returns a list of deliveries in json format
     or appropriate status code indicating reason for failure
 '''
-# @requires_auth('get:deliveries')
 @app.route('/deliveries', methods=['GET'])
 def get_deliveries():
     query = Delivery.query.all()
@@ -43,9 +42,9 @@ POST /deliveries
     adds item to database and returns the item description
     or appropriate status code indicating reason for failure
 '''
-@requires_auth('post:deliveries')
 @app.route('/deliveries', methods=['POST'])
-def post_deliveries():
+@requires_auth('post:deliveries')
+def post_deliveries(jwt):
     req = request.get_json()
     description = req['description']
     new_delivery = Delivery(description)
@@ -59,12 +58,13 @@ PATCH /deliveries/<id>
     updates item in the database and returns the json formatted item
     or appropriate status code indicating reason for failure
 '''
-@requires_auth('patch:deliveries')
 @app.route('/deliveries/<int:id>', methods=['PATCH'])
-def update_deliveries(id):
+@requires_auth('patch:deliveries')
+def update_deliveries(jwt, id):
+    print(jwt)
+    print(id)
     query = Delivery.query.get(id)
     req = request.get_json()
-    print(req.get('driver_id', 0))
     if 'description' in req:
         query.description = req.get('description', '')
     if 'delivered' in req:
@@ -82,11 +82,10 @@ DELETE /deliveries/<id>
     provided the delivery id
     deletes item from the database and returns the json formatted item
     or appropriate status code indicating reason for failure
-    
 '''
-@requires_auth('delete:deliveries')
 @app.route('/deliveries/<int:id>', methods=['DELETE'])
-def delete_deliveries(id): #jwt, 
+@requires_auth('delete:deliveries')
+def delete_deliveries(jwt, id):
     query = Delivery.query.get(id)
     query.delete()
     return jsonify(query.format())
@@ -97,9 +96,9 @@ GET /drivers
     returns a list of drivers in json format
     or appropriate status code indicating reason for failure
 '''
-@requires_auth('get:drivers')
 @app.route('/drivers', methods=['GET'])
-def get_drivers():
+@requires_auth('get:drivers')
+def get_drivers(jwt):
     query = Driver.query.all()
     drivers = [q.format() for q in query]
     return jsonify(drivers)
