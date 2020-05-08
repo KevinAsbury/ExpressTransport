@@ -2,7 +2,7 @@
 
 Heroku App: [MyExpressWay](https://myexpressway.herokuapp.com/)
 
-My [Udacity](https://www.udacity.com/) Full Statck Developer Nanodegree program final project. The MyExpressWay app is used by an imaginary delivery company. They have drivers who need to login and mark if they are available and they have managers who need to login and see available drivers and deliveries. 
+My [Udacity](https://www.udacity.com/) Full Statck Developer Nanodegree program final project. The MyExpressWay server is used by an imaginary delivery company. They have drivers who need to login and mark if they are available and they have managers who need to login and see available drivers and deliveries. 
 
 ## Getting Started
 
@@ -116,3 +116,6 @@ Get a list of drivers.
 ]
 ```
 --------------------------
+
+### Postman
+The postman template is myexpressway app.postman_collection.json, open this file to begin testing the endpoints. Be sure to update the tokens if they are expired.

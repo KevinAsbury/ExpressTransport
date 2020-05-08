@@ -6,80 +6,21 @@
 	},
 	"item": [
 		{
-			"name": "driver",
+			"name": "public",
 			"item": [
-				{
-					"name": "GET /",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://myexpressway.herokuapp.com/",
-							"protocol": "https",
-							"host": [
-								"myexpressway",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "GET /deliveries",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PATCH /deliveries",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/deliveries/1",
-							"protocol": "http",
+							"raw": "https://myexpressway.herokuapp.com/deliveries",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"myexpressway",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
-							"path": [
-								"deliveries",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST /deliveries",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/deliveries",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
 							"path": [
 								"deliveries"
 							]
@@ -88,43 +29,261 @@
 					"response": []
 				},
 				{
-					"name": "DELETE /deliveries",
+					"name": "POST /deliveries (Should Error)",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Softest Sandwich Bread\",\n    \"driver_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/deliveries/1",
-							"protocol": "http",
+							"raw": "https://myexpressway.herokuapp.com/deliveries",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"myexpressway",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
-								"deliveries",
-								"1"
+								"deliveries"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET drivers",
+					"name": "PATCH /deliveries (Should Error)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"delivered\": true,\n    \"driver_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/deliveries/8",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"deliveries",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /deliveries (Should Error)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/deliveries/9",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"deliveries",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET drivers (Should Error)",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/drivers",
-							"protocol": "http",
+							"raw": "https://myexpressway.herokuapp.com/drivers",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"myexpressway",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ff6cfcd0-1118-42fe-913e-b8079590f007",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "18c4f278-9fc4-4187-9560-6dfcd11239f1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "driver",
+			"item": [
+				{
+					"name": "GET /deliveries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/deliveries",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /deliveries  (Should Error)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Softest Sandwich Bread\",\n    \"driver_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/deliveries",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /deliveries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7354ee4b-46a1-4e08-9dad-fc317e8e6cd8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"delivered\": true,\n    \"driver_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/deliveries/8",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"deliveries",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /deliveries  (Should Error)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/deliveries/9",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"deliveries",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET drivers (Should Error)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myexpressway.herokuapp.com/drivers",
+							"protocol": "https",
+							"host": [
+								"myexpressway",
+								"herokuapp",
+								"com"
+							],
 							"path": [
 								"drivers"
 							]
@@ -138,7 +297,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQ1MTU5ODk0NjM5OTE1MTA1MTYiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4NTA2MjY2NywiZXhwIjoxNTg1MDY5ODY3LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZGVsaXZlcmllcyIsInBhdGNoOmRlbGl2ZXJpZXMiXX0.Oix2kc_z0XtRzz0rxpllN2yv3kAmaGGjHqgLOBb3QmzsUMrw9YSQEOBKUR7YHDTLfkkVwmZ1EA5hfIdy8nrs3nZ8vR3n7R5jZm4g8aBfJFYSyZ_irAqx7Xkw-AgOnNVvlDycP7OcXu7bi3OMulst9I8QMsxFi41Kfs4UfnSOg8Yp3yQpD4B4xU9OknXTymQV9DbRsN2FV3Vz5fUmZFovfQKZFurLLtBB65wH33h07ZSa5AaPYFEPQWQbSZAS_iSel4ZiHgNfoRPYqI8miTCmksr50ng2AonrdEVwEG_wG9lecN_xpe-pUwe6-YiFnvd-Eh9V3sGJO8FIaGmH1bk_Vg",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQ1MTU5ODk0NjM5OTE1MTA1MTYiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4ODg2NzU5OCwiZXhwIjoxNTg4OTUzOTk4LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZGVsaXZlcmllcyIsInBhdGNoOmRlbGl2ZXJpZXMiXX0.cM7Ryknyu0O_kVqfL85mA-A58R2Lz0Y4iimQeS-t9iHnf63xTfaeYmO3aXnsnCXRUAmMUwKhip6pVpzjza5jozml8XruhHsPist6aXole7SoWiLmVZXNmQ1MJJni1RUS8PUpcc65Ge6kKs0lovLyvoSN9wAbF8DXYAtWwBEMAb5pkrEuW8zuE5q7keRo9O882YLFYpcDJqyE-xRYOsYHiSxYvgzk9aY70oCTxKd0alKDz-Qdipp--c-V4mVa1AJb5qpye2jDDuyME-G8E9C59VIPzzPgDAbJpbpTG0o1vZqdmuw_F6bUwuQsU6z4sQXwR0PVXGkI23P-l20sxq_K2A",
 						"type": "string"
 					}
 				]
@@ -171,29 +330,6 @@
 			"name": "manager",
 			"item": [
 				{
-					"name": "GET /",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://myexpressway.herokuapp.com/",
-							"protocol": "https",
-							"host": [
-								"myexpressway",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "GET /deliveries",
 					"request": {
 						"method": "GET",
@@ -220,7 +356,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"description\": \"Softest White Bread\"\n}",
+							"raw": "{\n    \"description\": \"Softest Sandwich Bread\",\n    \"driver_id\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -247,19 +383,26 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Sourdough Bread\",\n    \"driver_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/deliveries/1",
-							"protocol": "http",
+							"raw": "https://myexpressway.herokuapp.com/deliveries/9",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"myexpressway",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"deliveries",
-								"1"
+								"9"
 							]
 						}
 					},
@@ -271,18 +414,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/deliveries/1",
-							"protocol": "http",
+							"raw": "https://myexpressway.herokuapp.com/deliveries/9",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"myexpressway",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"deliveries",
-								"1"
+								"9"
 							]
 						}
 					},
@@ -294,15 +435,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/drivers",
-							"protocol": "http",
+							"raw": "https://myexpressway.herokuapp.com/drivers",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"myexpressway",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"drivers"
 							]
@@ -316,7 +455,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTUxODI3NzUzNDI4ODIyMTE1MDEiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4NTA2MjU5NSwiZXhwIjoxNTg1MDY5Nzk1LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6ZGVsaXZlcmllcyIsImRlbGV0ZTpkcml2ZXJzIiwiZ2V0OmRlbGl2ZXJpZXMiLCJnZXQ6ZHJpdmVycyIsInBhdGNoOmRlbGl2ZXJpZXMiLCJwYXRjaDpkcml2ZXJzIiwicG9zdDpkZWxpdmVyaWVzIiwicG9zdDpkcml2ZXJzIl19.DHqYjXesmqp6o-f6XuYi6Aoocga9AJcADwO84iN8sEmGx8wWDnyvvY-29JJF-a5p4xV8_kqzgtMpF8lMmUyP7XpjnskYG2Pzvxa2mtaqzGjRq8ZP_EkL40mcH_3twf0dE4-SBqSQJVny9kfU9i03OubZ4xWrUbL7SXgAs4IOWEQjaraZ8lX62iuw6dKDn6JOcR4bCcXz1gwnefn8rErUEn6HxeOAZn4eIV49u82_-Od761gECG5kAPVk6Rk2mv1Li01wzOk70coIf52zgKmPOLe7wjG4RXH3ku8zszfdXdsaPpi0ea90paeTLiv2bcM2cYgIzz9G6wAMTVd-J8TvZA",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTUxODI3NzUzNDI4ODIyMTE1MDEiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4ODg2NjcyNSwiZXhwIjoxNTg4OTUzMTI1LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6ZGVsaXZlcmllcyIsImRlbGV0ZTpkcml2ZXJzIiwiZ2V0OmRlbGl2ZXJpZXMiLCJnZXQ6ZHJpdmVycyIsInBhdGNoOmRlbGl2ZXJpZXMiLCJwYXRjaDpkcml2ZXJzIiwicG9zdDpkZWxpdmVyaWVzIiwicG9zdDpkcml2ZXJzIl19.t5495-0IA7dpo0ffuJSZyWWaCw_W2uRNxN6uVZNiuVH6BplkudgbD0uJor9aSCaN3na7Y9GzAOoa2ptBpEuBCzX7fUsuQ5XYDXGZ70s-bdlHojJL0dIV8DkyuoN7l5-kUVUIvV6KiLFHoMTPBdEMcC_Psk_56vtrpTyhMV_I18UB4A1Xf0OiKkK-6NzqzWqla3Kt4B7iiaTB2L9ST_eTlIvwtOr4vdsqvIqi9EseJVn4Jb7rsYQ-iK6MBGxbORyFaCI0iPM16OCLolU16qDOVVzPUXD5Juagqzq87aP2VQU6dO0GsXSEwyjmQ9wyAQPxAY7tm9BnY4OQ5KwUCyHiFw",
 						"type": "string"
 					}
 				]
