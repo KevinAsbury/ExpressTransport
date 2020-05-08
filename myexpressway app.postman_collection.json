@@ -10,6 +10,28 @@
 			"item": [
 				{
 					"name": "GET /deliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "89c06f99-76a1-4242-838a-3c40e2cb03bb",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -30,6 +52,24 @@
 				},
 				{
 					"name": "POST /deliveries (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d4788bb-de40-4a09-b87b-d59cbcb1bde2",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -59,6 +99,24 @@
 				},
 				{
 					"name": "PATCH /deliveries (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "419fd53c-041e-4c48-beb3-20ff67e3e8bb",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -89,6 +147,24 @@
 				},
 				{
 					"name": "DELETE /deliveries (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b4fd46ea-1536-493e-9395-c9a23d8a8fd0",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -110,6 +186,24 @@
 				},
 				{
 					"name": "GET drivers (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9678db6a-36e4-4ea8-9709-e5a083db8eb2",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -161,6 +255,28 @@
 			"item": [
 				{
 					"name": "GET /deliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7306ae49-466c-4214-b92b-423be3e0e30c",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -181,6 +297,24 @@
 				},
 				{
 					"name": "POST /deliveries  (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "38d7cf3f-25f2-4557-a7ed-76f7923bad64",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -220,6 +354,26 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e044e2f-c0e1-4737-82da-ae42c0ff8f70",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -252,6 +406,24 @@
 				},
 				{
 					"name": "DELETE /deliveries  (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "56795fe0-117e-4f13-9756-f904f8928f94",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -273,6 +445,24 @@
 				},
 				{
 					"name": "GET drivers (Should Error)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59b4df6c-65c7-4ce5-8da9-3ce3e10b945a",
+								"exec": [
+									"pm.test(\"Response should be status code 500\", function() {",
+									"    pm.response.to.have.status(500);",
+									"})",
+									"",
+									"pm.test(\"Response should be error\", function() {",
+									"    pm.response.to.be.eq;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -297,7 +487,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQ1MTU5ODk0NjM5OTE1MTA1MTYiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4ODg2NzU5OCwiZXhwIjoxNTg4OTUzOTk4LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZGVsaXZlcmllcyIsInBhdGNoOmRlbGl2ZXJpZXMiXX0.cM7Ryknyu0O_kVqfL85mA-A58R2Lz0Y4iimQeS-t9iHnf63xTfaeYmO3aXnsnCXRUAmMUwKhip6pVpzjza5jozml8XruhHsPist6aXole7SoWiLmVZXNmQ1MJJni1RUS8PUpcc65Ge6kKs0lovLyvoSN9wAbF8DXYAtWwBEMAb5pkrEuW8zuE5q7keRo9O882YLFYpcDJqyE-xRYOsYHiSxYvgzk9aY70oCTxKd0alKDz-Qdipp--c-V4mVa1AJb5qpye2jDDuyME-G8E9C59VIPzzPgDAbJpbpTG0o1vZqdmuw_F6bUwuQsU6z4sQXwR0PVXGkI23P-l20sxq_K2A",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQ1MTU5ODk0NjM5OTE1MTA1MTYiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4ODk1NzcxNSwiZXhwIjoxNTg5MDQ0MTE1LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZGVsaXZlcmllcyIsInBhdGNoOmRlbGl2ZXJpZXMiXX0.sa38-Td7U43bgq3o3x883lDivZ0hgiiV7bI5HLuAodhpCcyXjSqf1x8FoP09YYWs8gJ_o7Vd-L5TXk-xEDNQ6pKWNFA_SWNfe3iAPJXU81XrcjeoPaGq6RCKcPapxMr8VrYjlaUm8I0xxQP575u1C09O9oIxFdQP5iwDJ6s1wIBpWp-CgkpOD3B6RZVcyJG1DARW93a_LulpWWygJh8_SAI6Zx_8bQDj5kBenQOXa3m-ieAiuwhdZLM8Cc248NOaoWJFbt-e7-YuP-bnsqcWQSCXXVD0IDTrx7yFnUexN7QHVAGppLQzm7R2ocpGoJ9v7u3cbAFys9CsFpA09trImw",
 						"type": "string"
 					}
 				]
@@ -331,6 +521,28 @@
 			"item": [
 				{
 					"name": "GET /deliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ae34a10-f540-420e-809e-a6fdab383ef0",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -351,6 +563,28 @@
 				},
 				{
 					"name": "POST /deliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6cb7f540-d9ce-4808-8177-7aed011d0175",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -380,6 +614,28 @@
 				},
 				{
 					"name": "PATCH /deliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3cb2e01-cabf-43c4-894a-5c928dbf8af6",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -410,6 +666,28 @@
 				},
 				{
 					"name": "DELETE /deliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "431a7eec-22dd-40d1-926c-89e3f50c5cc1",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -431,6 +709,28 @@
 				},
 				{
 					"name": "GET /drivers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd04361-2606-45d2-a678-8829c66c55e1",
+								"exec": [
+									"pm.test(\"Response should be status code 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"",
+									"pm.test(\"Response should be OK\", function() {",
+									"    pm.response.to.be.ok;",
+									"})",
+									"",
+									"pm.test(\"Response should be JSON\", function() {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -455,7 +755,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTUxODI3NzUzNDI4ODIyMTE1MDEiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4ODg2NjcyNSwiZXhwIjoxNTg4OTUzMTI1LCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6ZGVsaXZlcmllcyIsImRlbGV0ZTpkcml2ZXJzIiwiZ2V0OmRlbGl2ZXJpZXMiLCJnZXQ6ZHJpdmVycyIsInBhdGNoOmRlbGl2ZXJpZXMiLCJwYXRjaDpkcml2ZXJzIiwicG9zdDpkZWxpdmVyaWVzIiwicG9zdDpkcml2ZXJzIl19.t5495-0IA7dpo0ffuJSZyWWaCw_W2uRNxN6uVZNiuVH6BplkudgbD0uJor9aSCaN3na7Y9GzAOoa2ptBpEuBCzX7fUsuQ5XYDXGZ70s-bdlHojJL0dIV8DkyuoN7l5-kUVUIvV6KiLFHoMTPBdEMcC_Psk_56vtrpTyhMV_I18UB4A1Xf0OiKkK-6NzqzWqla3Kt4B7iiaTB2L9ST_eTlIvwtOr4vdsqvIqi9EseJVn4Jb7rsYQ-iK6MBGxbORyFaCI0iPM16OCLolU16qDOVVzPUXD5Juagqzq87aP2VQU6dO0GsXSEwyjmQ9wyAQPxAY7tm9BnY4OQ5KwUCyHiFw",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5qTTJSVE5CUmtZd1FqRTRNRVV6UkRkRE5qTXhPRE5FTVRKRk1UWkJNREpFTlVRMlJUazNNUSJ9.eyJpc3MiOiJodHRwczovL2thLWRldi5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTUxODI3NzUzNDI4ODIyMTE1MDEiLCJhdWQiOlsibXlleHByZXNzd2F5IiwiaHR0cHM6Ly9rYS1kZXYuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU4ODk1NzU1MCwiZXhwIjoxNTg5MDQzOTUwLCJhenAiOiJaS0wzRDNSall1azFlQndiR2k3WTNYUkZkc2xzRXdJdiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6ZGVsaXZlcmllcyIsImRlbGV0ZTpkcml2ZXJzIiwiZ2V0OmRlbGl2ZXJpZXMiLCJnZXQ6ZHJpdmVycyIsInBhdGNoOmRlbGl2ZXJpZXMiLCJwYXRjaDpkcml2ZXJzIiwicG9zdDpkZWxpdmVyaWVzIiwicG9zdDpkcml2ZXJzIl19.lvhhLmQHhE_-kveWip9tgOKNMemP1EgQ48J0bMVoCHLzN5U3Vmr0ZRIM5z8f2585iSLjulevhToTrcCXCeW5aCtwBViD7uSSGrBLKAU58_aGN2NYLmtMhB8ZVYobpMnn-ozEr-PHHyAGnJaggJYDlwtVLbfj9WMfnwHptZHbyIXSHuS5h8kZNwWSRAoTkW5fotBf5MVfqPxLGHu8O_lc5-CXrP8qqH_6mF4CSlL0w1kwfA_xvBmO1DMwyX0vJuxj68Gk-56Qb0uTM-G7ZpBSuJiMimgZ2nbya1aMJ_h5yXeNZAB9VJCt7FL5uJW2y-x4VaDfEx2BviloANua3APAlw",
 						"type": "string"
 					}
 				]

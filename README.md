@@ -40,6 +40,8 @@ Driver Permissions:
 -get:deliveries
 -patch:deliveries
 
+After creating your Auth0 app and roles configure the environment variables in setup.sh.
+
 ### Endpoints
 
 GET /
@@ -119,3 +121,6 @@ Get a list of drivers.
 
 ### Postman
 The postman template is myexpressway app.postman_collection.json, open this file to begin testing the endpoints. Be sure to update the tokens if they are expired.
+
+## Postman Testing
+You will find testing for each route in the provided postman configuration.
